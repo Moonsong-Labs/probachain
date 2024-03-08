@@ -7,15 +7,27 @@ use sp_std::vec::Vec;
 #[cfg(feature = "std")]
 use std::path::PathBuf;
 #[cfg(feature = "std")]
-use rust_bert::pipelines::zero_shot_classification::ZeroShotClassificationModel;
-#[cfg(feature = "std")]
-use rust_bert::pipelines::zero_shot_classification::ZeroShotClassificationConfig;
-#[cfg(feature = "std")]
-use rust_bert::pipelines::common::{ModelResource, ModelType};
-#[cfg(feature = "std")]
-use rust_bert::resources::{LocalResource};
+use rust_bert::{
+	pipelines::{
+		zero_shot_classification::{ZeroShotClassificationModel, ZeroShotClassificationConfig},
+		common::{ModelResource, ModelType},
+		conversation::{
+			ConversationConfig, ConversationManager, ConversationModel,
+		}
+	},
+	resources::{LocalResource,RemoteResource}
+};
+
 #[cfg(feature = "std")]
 use tch::Device;
+
+#[cfg(feature = "std")]
+use sp_externalities::ExternalitiesExt;
+
+#[cfg(feature = "std")]
+use rust_bert::pipelines::question_answering::{
+    QaInput, QuestionAnsweringConfig, QuestionAnsweringModel,
+};
 
 // #[cfg(feature = "std")]
 // sp_externalities::decl_extension! {
@@ -30,14 +42,13 @@ use tch::Device;
 // }
 
 #[cfg(feature = "std")]
-struct CustomFunction {
-	model: Option<ZeroShotClassificationModel>
-}
+struct CustomFunction;
 
 #[cfg(feature = "std")]
 impl CustomFunction {
-	pub fn ask_ai(seed: u32) -> String {
-		let model = Some(ZeroShotClassificationModel::new(Default::default()).unwrap());
+	pub fn ask_ai(seed: u32, question: String) -> String {
+		// let model = Some(ZeroShotClassificationModel::new(Default::default()).unwrap());
+		let model = Some(QuestionAnsweringModel::new(Default::default()).unwrap());
 		// let config_resource = LocalResource {
 		// 	local_path: PathBuf::from("/root/projects/probachain/rust_model.ot"),
 		// };
@@ -55,28 +66,54 @@ impl CustomFunction {
         //     kind: None,
         // }).unwrap();
 
-		let input_sentence = format!("Using seed {}, pick a random number", seed).clone();
-		let candidate_labels = &["23", "16", "56", "83"];
+		// let input_sentence = format!("Using seed {}, pick a random number", seed).clone();
+		// let candidate_labels = &["23", "16", "56", "83"];
 	
-		let output = model.unwrap().predict_multilabel(
-			&[input_sentence.as_str()],
-			candidate_labels,
-			None,
-			128,
-		);
-		let mut top = output.unwrap()[0].clone();
-		top.sort_by(|a, b| b.score.partial_cmp(&a.score).unwrap());
-		log::info!("{} => {:?}", input_sentence, top);
-		log::info!("Top => {:?}", top[0]);
+		// let output = model.unwrap().predict_multilabel(
+		// 	&[input_sentence.as_str()],
+		// 	candidate_labels,
+		// 	None,
+		// 	128,
+		// );
+		// let mut top = output.unwrap()[0].clone();
+		// top.sort_by(|a, b| b.score.partial_cmp(&a.score).unwrap());
+		// log::info!("{} => {:?}", input_sentence, top);
+		// log::info!("Top => {:?}", top[0]);
+
 		
-		top[0].text.clone()
+		let config = ConversationConfig {
+			do_sample: true,
+			max_length: Some(512),
+			num_beams: 5,
+			num_return_sequences: 1,
+			..Default::default()
+		};
+		let conversation_model = ConversationModel::new(config).unwrap();
+		let mut conversation_manager = ConversationManager::new();
+
+		let conversation_1_id =
+        	conversation_manager.create(format!("{}", question.clone()).as_str());
+    
+
+		// let context = format!("This is a blockchain. Also use seed {}", seed).clone();
+		// let qa_input = QaInput {
+		// 	question: question.clone().try_into().unwrap(),
+		// 	context: context.clone(),
+		// };
+		// let answers = model.predict(&[qa_input], 1, 2048);
+		let output = conversation_model.generate_responses(&mut conversation_manager);
+
+		log::info!("question: {:?}", TryInto::<String>::try_into(question).unwrap());
+		log::info!("{:?}", output);
+		
+		output.unwrap().values().cloned().collect::<Vec<_>>().join(" ")
 	}
 }
 
 /// Interface that provides access to the ai function.
 #[runtime_interface]
 pub trait Custom {
-	fn ask_ai(&mut self, seed: u32) -> Vec<u8> {
-		CustomFunction::ask_ai(seed).as_bytes().to_vec()
+	fn ask_ai(&mut self, seed: u32, question: Vec<u8>) -> Vec<u8> {
+		CustomFunction::ask_ai(seed, String::from_utf8(question).expect("Should be valid text")).as_bytes().to_vec()
 	}
 }

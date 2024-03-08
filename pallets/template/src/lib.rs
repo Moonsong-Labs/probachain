@@ -17,6 +17,10 @@ pub mod weights;
 pub use weights::*;
 use custom_host_function::custom;
 use sp_std::vec::Vec;
+
+use frame_support::{traits::ConstU32, sp_runtime::BoundedVec};
+
+
 #[frame_support::pallet]
 pub mod pallet {
 	use super::*;
@@ -35,13 +39,6 @@ pub mod pallet {
 		type WeightInfo: WeightInfo;
 	}
 
-	// The pallet's runtime storage items.
-	// https://docs.substrate.io/main-docs/build/runtime-storage/
-	#[pallet::storage]
-	#[pallet::getter(fn something)]
-	// Learn more about declaring storage items:
-	// https://docs.substrate.io/main-docs/build/runtime-storage/#declaring-storage-items
-	pub type Something<T> = StorageValue<_, u32>;
 
 	// Pallets use events to inform users when important changes are made.
 	// https://docs.substrate.io/main-docs/build/events-errors/
@@ -51,7 +48,7 @@ pub mod pallet {
 		/// Event documentation should end with an array that provides descriptive names for event
 		/// parameters. [something, who]
 		AiPickRandom { seed: u32, res: Vec<u8>},
-		AiAnswer { who: T::AccountId, seed: u32, res: Vec<u8>},
+		AiAnswer { who: T::AccountId, seed: u32, prompt: Vec<u8>, res: Vec<u8>},
 	}
 
 	// Errors inform users that something went wrong.
@@ -67,8 +64,8 @@ pub mod pallet {
 	impl<T: Config> Hooks<BlockNumberFor<T>> for Pallet<T> {
 		fn on_initialize(_n: BlockNumberFor<T>) -> Weight {
 			let seed: u32 = _n.try_into().unwrap_or(0);
-			let res = custom::ask_ai(seed);
-			Self::deposit_event(Event::AiPickRandom { seed, res });
+			// let res = custom::ask_ai(seed, "Who should produce a block between Alice and Bob this turn?".as_bytes().to_vec());
+			// Self::deposit_event(Event::AiPickRandom { seed, res: res });
 			Weight::zero()
 		}
 	}
@@ -82,40 +79,17 @@ pub mod pallet {
 		/// storage and emits an event. This function must be dispatched by a signed extrinsic.
 		#[pallet::call_index(0)]
 		#[pallet::weight(T::WeightInfo::ask_ai())]
-		pub fn ask_ai(origin: OriginFor<T>, something: u32) -> DispatchResult {
+		pub fn ask_ai(origin: OriginFor<T>, seed: u32, prompt: BoundedVec<u8, ConstU32<1024>>) -> DispatchResult {
 			// Check that the extrinsic was signed and get the signer.
 			// This function will return an error if the extrinsic is not signed.
 			// https://docs.substrate.io/main-docs/build/origins/
 			let who = ensure_signed(origin)?;
 
-			// Update storage.
-			<Something<T>>::put(something);
-
-			let res = custom::ask_ai(something);
+			let res = custom::ask_ai(seed, prompt.to_vec());
 			// Emit an event.
-			Self::deposit_event(Event::AiAnswer { who, seed: something, res });
+			Self::deposit_event(Event::AiAnswer { who, seed, prompt: prompt.to_vec(), res });
 			// Return a successful DispatchResultWithPostInfo
 			Ok(())
-		}
-
-		/// An example dispatchable that may throw a custom error.
-		#[pallet::call_index(1)]
-		#[pallet::weight(T::WeightInfo::cause_error())]
-		pub fn cause_error(origin: OriginFor<T>) -> DispatchResult {
-			let _who = ensure_signed(origin)?;
-
-			// Read a value from storage.
-			match <Something<T>>::get() {
-				// Return an error if the value has not been set.
-				None => return Err(Error::<T>::NoneValue.into()),
-				Some(old) => {
-					// Increment the value read from storage; will error in the event of overflow.
-					let new = old.checked_add(1).ok_or(Error::<T>::StorageOverflow)?;
-					// Update the value in storage with the incremented result.
-					<Something<T>>::put(new);
-					Ok(())
-				},
-			}
 		}
 	}
 }
