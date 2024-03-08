@@ -50,7 +50,8 @@ pub mod pallet {
 	pub enum Event<T: Config> {
 		/// Event documentation should end with an array that provides descriptive names for event
 		/// parameters. [something, who]
-		SomethingStored { something: u32, who: T::AccountId, res: Vec<u8>},
+		AiPickRandom { seed: u32, res: Vec<u8>},
+		AiAnswer { who: T::AccountId, seed: u32, res: Vec<u8>},
 	}
 
 	// Errors inform users that something went wrong.
@@ -62,6 +63,16 @@ pub mod pallet {
 		StorageOverflow,
 	}
 
+	#[pallet::hooks]
+	impl<T: Config> Hooks<BlockNumberFor<T>> for Pallet<T> {
+		fn on_initialize(_n: BlockNumberFor<T>) -> Weight {
+			let seed: u32 = _n.try_into().unwrap_or(0);
+			let res = custom::ask_ai(seed);
+			Self::deposit_event(Event::AiPickRandom { seed, res });
+			Weight::zero()
+		}
+	}
+
 	// Dispatchable functions allows users to interact with the pallet and invoke state changes.
 	// These functions materialize as "extrinsics", which are often compared to transactions.
 	// Dispatchable functions must be annotated with a weight and must return a DispatchResult.
@@ -70,8 +81,8 @@ pub mod pallet {
 		/// An example dispatchable that takes a singles value as a parameter, writes the value to
 		/// storage and emits an event. This function must be dispatched by a signed extrinsic.
 		#[pallet::call_index(0)]
-		#[pallet::weight(T::WeightInfo::do_something())]
-		pub fn do_something(origin: OriginFor<T>, something: u32) -> DispatchResult {
+		#[pallet::weight(T::WeightInfo::ask_ai())]
+		pub fn ask_ai(origin: OriginFor<T>, something: u32) -> DispatchResult {
 			// Check that the extrinsic was signed and get the signer.
 			// This function will return an error if the extrinsic is not signed.
 			// https://docs.substrate.io/main-docs/build/origins/
@@ -80,9 +91,9 @@ pub mod pallet {
 			// Update storage.
 			<Something<T>>::put(something);
 
-			let res = custom::do_something();
+			let res = custom::ask_ai(something);
 			// Emit an event.
-			Self::deposit_event(Event::SomethingStored { something, who, res });
+			Self::deposit_event(Event::AiAnswer { who, seed: something, res });
 			// Return a successful DispatchResultWithPostInfo
 			Ok(())
 		}

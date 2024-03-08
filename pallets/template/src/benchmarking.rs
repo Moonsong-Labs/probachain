@@ -12,11 +12,11 @@ mod benchmarks {
 	use super::*;
 
 	#[benchmark]
-	fn do_something() {
+	fn ask_ai() {
 		let value = 100u32.into();
 		let caller: T::AccountId = whitelisted_caller();
 		#[extrinsic_call]
-		do_something(RawOrigin::Signed(caller), value);
+		ask_ai(RawOrigin::Signed(caller), value);
 
 		assert_eq!(Something::<T>::get(), Some(value));
 	}
