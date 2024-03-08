@@ -15,7 +15,8 @@ mod tests;
 mod benchmarking;
 pub mod weights;
 pub use weights::*;
-
+use custom_host_function::custom;
+use sp_std::vec::Vec;
 #[frame_support::pallet]
 pub mod pallet {
 	use super::*;
@@ -49,7 +50,7 @@ pub mod pallet {
 	pub enum Event<T: Config> {
 		/// Event documentation should end with an array that provides descriptive names for event
 		/// parameters. [something, who]
-		SomethingStored { something: u32, who: T::AccountId },
+		SomethingStored { something: u32, who: T::AccountId, res: Vec<u8>},
 	}
 
 	// Errors inform users that something went wrong.
@@ -79,8 +80,9 @@ pub mod pallet {
 			// Update storage.
 			<Something<T>>::put(something);
 
+			let res = custom::do_something();
 			// Emit an event.
-			Self::deposit_event(Event::SomethingStored { something, who });
+			Self::deposit_event(Event::SomethingStored { something, who, res });
 			// Return a successful DispatchResultWithPostInfo
 			Ok(())
 		}

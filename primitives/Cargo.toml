@@ -1,0 +1,13 @@
+[package]
+name = "custom-host-function"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+sp-std = { version = "8.0.0", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
+sp-runtime-interface = {version ="17.0.0", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0"}
+sp-externalities = { version = "0.19.0", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
+
+[features]
+default = ["std"]
+std = ["sp-externalities/std", "sp-runtime-interface/std"]

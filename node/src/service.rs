@@ -1,5 +1,6 @@
 //! Service and ServiceFactory implementation. Specialized wrapper over substrate service.
 
+use frame_benchmarking::v2::frame_support::traits::tokens::currency;
 use futures::FutureExt;
 use node_template_runtime::{self, opaque::Block, RuntimeApi};
 use sc_client_api::{Backend, BlockBackend};
@@ -11,7 +12,6 @@ use sc_telemetry::{Telemetry, TelemetryWorker};
 use sc_transaction_pool_api::OffchainTransactionPoolFactory;
 use sp_consensus_aura::sr25519::AuthorityPair as AuraPair;
 use std::{sync::Arc, time::Duration};
-
 // Our native executor instance.
 pub struct ExecutorDispatch;
 
@@ -21,7 +21,7 @@ impl sc_executor::NativeExecutionDispatch for ExecutorDispatch {
 	type ExtendHostFunctions = frame_benchmarking::benchmarking::HostFunctions;
 	/// Otherwise we only use the default Substrate host functions.
 	#[cfg(not(feature = "runtime-benchmarks"))]
-	type ExtendHostFunctions = ();
+	type ExtendHostFunctions = custom_host_function::custom::HostFunctions;
 
 	fn dispatch(method: &str, data: &[u8]) -> Option<Vec<u8>> {
 		node_template_runtime::api::dispatch(method, data)
