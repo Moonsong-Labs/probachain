@@ -1459,6 +1459,7 @@ name = "custom-host-function"
 version = "0.1.0"
 dependencies = [
  "log",
+ "once_cell",
  "rust-bert",
  "sp-externalities",
  "sp-runtime-interface",

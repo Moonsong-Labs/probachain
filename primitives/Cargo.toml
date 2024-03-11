@@ -10,9 +10,10 @@ sp-externalities = { version = "0.19.0", default-features = false, git = "https:
 
 rust-bert = { default-features = false, git = "https://github.com/guillaume-be/rust-bert.git", branch = "main", optional = true }
 tch = { version = "0.15.0", optional = true  }
+once_cell = { version = "1.8.0", optional = true }
 log = {version = "0.4"}
 
 [features]
 default = ["std"]
-std = ["sp-externalities/std", "sp-runtime-interface/std", "tch", "rust-bert", "rust-bert/remote", "rust-bert/default-tls" ]
+std = ["sp-externalities/std", "sp-runtime-interface/std", "tch", "rust-bert", "once_cell", "rust-bert/remote", "rust-bert/default-tls" ]
 

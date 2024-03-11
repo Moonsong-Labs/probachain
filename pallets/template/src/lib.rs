@@ -63,7 +63,7 @@ pub mod pallet {
 	#[pallet::hooks]
 	impl<T: Config> Hooks<BlockNumberFor<T>> for Pallet<T> {
 		fn on_initialize(_n: BlockNumberFor<T>) -> Weight {
-			let seed: u32 = _n.try_into().unwrap_or(0);
+			let _seed: u32 = _n.try_into().unwrap_or(0);
 			// let res = custom::ask_ai(seed, "Who should produce a block between Alice and Bob this turn?".as_bytes().to_vec());
 			// Self::deposit_event(Event::AiPickRandom { seed, res: res });
 			Weight::zero()
