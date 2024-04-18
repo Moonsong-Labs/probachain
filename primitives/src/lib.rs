@@ -1,11 +1,23 @@
 //! Custom host function
 #![cfg_attr(not(feature = "std"), no_std)]
 
+use serde::{Deserialize, Serialize};
 use sp_runtime_interface::runtime_interface;
 use sp_std::vec::Vec;
 
 #[cfg(feature = "std")]
-pub use model::AIModel;
+use jsonrpsee::{
+	core::{client::ClientT, params::ArrayParams, traits::ToRpcParams, JsonRawValue, Error},
+	http_client::{HttpClient, HttpClientBuilder},
+	rpc_params,
+};
+#[cfg(feature = "std")]
+pub use serde_json::value::to_raw_value;
+#[cfg(feature = "std")]
+use std::time::{Duration};
+
+#[cfg(feature = "std")]
+pub use model::AiRequester;
 #[cfg(feature = "std")]
 use std::sync::Mutex;
 
@@ -13,29 +25,37 @@ use std::sync::Mutex;
 pub mod model {
 	use super::*;
 	use once_cell::sync::OnceCell;
-	use rust_bert::pipelines::conversation::{
-		ConversationConfig, ConversationManager, ConversationModel,
-	};
 
-	pub static AI_MODEL: OnceCell<Mutex<AIModel>> = OnceCell::new();
+	pub static AI_MODEL: OnceCell<Mutex<AiRequester>> = OnceCell::new();
 
-	pub struct AIModel {
-		pub conversation_model: ConversationModel,
-		pub conversation_manager: ConversationManager,
+	#[derive(Debug, Deserialize ,Serialize)]
+	pub struct Query {
+		pub message: String,
+	}
+	#[derive(Debug, Deserialize ,Serialize)]
+	pub struct QueryResponse {
+		pub message: String,
+		pub response: String,
 	}
 
-	impl AIModel {
+	impl ToRpcParams for Query {
+		fn to_rpc_params(self) -> Result<Option<Box<JsonRawValue>>, Error> {
+			log::info!("Query: {:?}", self.message.clone());
+			Ok(to_raw_value(&self).unwrap()).map(Some)
+		}
+	}
+
+	pub struct AiRequester {
+		pub client: HttpClient,
+	}
+
+	impl AiRequester {
 		pub fn new() -> Self {
-			let config = ConversationConfig {
-				do_sample: true,
-				max_length: Some(512),
-				num_beams: 5,
-				num_return_sequences: 1,
-				..Default::default()
-			};
-			let conversation_model = ConversationModel::new(config).unwrap();
-			let conversation_manager = ConversationManager::new();
-			AIModel { conversation_model, conversation_manager }
+			AiRequester {
+				client: HttpClientBuilder::default().request_timeout(Duration::from_secs(360))
+					.build("http://gpu4.sequitur.kaki.dev:9000/api/v1/generate")
+					.unwrap(),
+			}
 		}
 
 		pub fn ask_ai(&mut self, _seed: u32, question: String) -> String {
@@ -53,21 +73,15 @@ pub mod model {
 			// log::info!("{} => {:?}", input_sentence, top);
 			// log::info!("Top => {:?}", top[0]);
 
-			let _conversation_1_id =
-				self.conversation_manager.create(format!("{}", question.clone()).as_str());
+			log::info!("question: {:?}", question.clone());
+			let response: Result<QueryResponse, _> = futures::executor::block_on(
+				self.client.request("generate", Query { message: question }),
+			);
+			let response = response.unwrap().response;
 
-			// let context = format!("This is a blockchain. Also use seed {}", seed).clone();
-			// let qa_input = QaInput {
-			// 	question: question.clone().try_into().unwrap(),
-			// 	context: context.clone(),
-			// };
-			// let answers = model.predict(&[qa_input], 1, 2048);
-			let output = self.conversation_model.generate_responses(&mut self.conversation_manager);
+			log::info!("{:?}", response);
 
-			log::info!("question: {:?}", question);
-			log::info!("{:?}", output);
-
-			output.unwrap().values().cloned().collect::<Vec<_>>().join(" ")
+			response
 		}
 	}
 }
@@ -77,7 +91,7 @@ pub mod model {
 pub trait Custom {
 	fn ask_ai(seed: u32, question: Vec<u8>) -> Vec<u8> {
 		model::AI_MODEL
-			.get_or_init(|| Mutex::new(model::AIModel::new()))
+			.get_or_init(|| Mutex::new(model::AiRequester::new()))
 			.lock()
 			.unwrap()
 			.ask_ai(seed, String::from_utf8_lossy(&question).to_string())
