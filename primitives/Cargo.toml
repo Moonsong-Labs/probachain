@@ -11,7 +11,7 @@ sp-externalities = { version = "0.19.0", default-features = false, git = "https:
 futures = { version = "0.3.21", features = ["compat"]}
 once_cell = { version = "1.8.0", optional = true }
 log = {version = "0.4"}
-jsonrpsee = { version = "0.16.2", features = ["http-client"], optional = true }
+jsonrpsee = { version = "0.22.4", features = ["http-client"], optional = true }
 serde = { version = "1.0", default-features = false, features = ["alloc", "derive"] }
 serde_json = { version = "1.0", default-features = false, features = ["alloc"] }
 
