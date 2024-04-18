@@ -181,12 +181,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "allocator-api2"
-version = "0.2.16"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0942ffc6dcaadf03badf6e6a2d0228460359d5e34b57ccdc720b7382dfbd5ec5"
-
-[[package]]
 name = "android-tzdata"
 version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -755,16 +749,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "89b2fd2a0dcf38d7971e2194b6b6eebab45ae01067456a7fd93d5547a61b70be"
 
 [[package]]
-name = "bzip2"
-version = "0.4.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bdb116a6ef3f6c3698828873ad02c3014b3c85cadb88496095628e3ef1e347f8"
-dependencies = [
- "bzip2-sys",
- "libc",
-]
-
-[[package]]
 name = "bzip2-sys"
 version = "0.1.11+1.0.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -773,28 +757,6 @@ dependencies = [
  "cc",
  "libc",
  "pkg-config",
-]
-
-[[package]]
-name = "cached-path"
-version = "0.6.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "097968e38f1319207f057d0f4d76452e4f4f847a5de61c5215379f297fa034f3"
-dependencies = [
- "flate2",
- "fs2",
- "glob",
- "indicatif 0.16.2",
- "log",
- "rand 0.8.5",
- "reqwest",
- "serde",
- "serde_json",
- "sha2 0.10.7",
- "tar",
- "tempfile",
- "thiserror",
- "zip",
 ]
 
 [[package]]
@@ -1090,12 +1052,6 @@ dependencies = [
 
 [[package]]
 name = "constant_time_eq"
-version = "0.1.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "245097e9a4535ee1e3e3931fcfcd55a796a44c643e8596ff6566d68f09b87bbc"
-
-[[package]]
-name = "constant_time_eq"
 version = "0.2.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "21a53c0a4d288377e7415b53dcfc3c04da5cdc2cc95c8d5ac178b58f0b861ad6"
@@ -1240,7 +1196,7 @@ dependencies = [
  "cranelift-codegen",
  "cranelift-entity",
  "cranelift-frontend",
- "itertools 0.10.5",
+ "itertools",
  "log",
  "smallvec",
  "wasmparser",
@@ -1376,27 +1332,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "csv"
-version = "1.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ac574ff4d437a7b5ad237ef331c17ccca63c46479e5b5453eb8e10bb99a759fe"
-dependencies = [
- "csv-core",
- "itoa",
- "ryu",
- "serde",
-]
-
-[[package]]
-name = "csv-core"
-version = "0.1.11"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5efa2b3d7902f4b634a20cae3c9c4e6209dc4779feb6863329607560143efa70"
-dependencies = [
- "memchr",
-]
-
-[[package]]
 name = "ctr"
 version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1458,13 +1393,15 @@ dependencies = [
 name = "custom-host-function"
 version = "0.1.0"
 dependencies = [
+ "futures 0.3.28",
+ "jsonrpsee",
  "log",
  "once_cell",
- "rust-bert",
+ "serde",
+ "serde_json",
  "sp-externalities",
  "sp-runtime-interface",
  "sp-std",
- "tch",
 ]
 
 [[package]]
@@ -1716,7 +1653,7 @@ version = "4.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f51c5d4ddabd36886dd3e1438cb358cdcb0d7c499cb99cb4ac2e38e18b5cb210"
 dependencies = [
- "dirs-sys 0.3.7",
+ "dirs-sys",
 ]
 
 [[package]]
@@ -1730,15 +1667,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "dirs"
-version = "5.0.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "44c45a9d03d6676652bcb5e724c7e988de1acad23a711b5217ab9cbecbec2225"
-dependencies = [
- "dirs-sys 0.4.1",
-]
-
-[[package]]
 name = "dirs-sys"
 version = "0.3.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1747,18 +1675,6 @@ dependencies = [
  "libc",
  "redox_users",
  "winapi",
-]
-
-[[package]]
-name = "dirs-sys"
-version = "0.4.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "520f05a5cbd335fae5a99ff7a6ab8627577660ee5cfd6a94a6a929b52ff0321c"
-dependencies = [
- "libc",
- "option-ext",
- "redox_users",
- "windows-sys 0.48.0",
 ]
 
 [[package]]
@@ -1939,15 +1855,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a357d28ed41a50f9c765dbfe56cbc04a64e53e5fc58ba79fbc34c10ef3df831f"
 
 [[package]]
-name = "encoding_rs"
-version = "0.8.33"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7268b386296a025e474d5140678f75d6de9493ae55a5d709eeb9dd08149945e1"
-dependencies = [
- "cfg-if",
-]
-
-[[package]]
 name = "enum-as-inner"
 version = "0.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2017,7 +1924,7 @@ version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e43f2f1833d64e33f15592464d6fdd70f349dda7b1a53088eb83cd94014008c5"
 dependencies = [
- "futures",
+ "futures 0.3.28",
 ]
 
 [[package]]
@@ -2124,7 +2031,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "36530797b9bf31cd4ff126dcfee8170f86b00cfdcea3269d73133cc0415945c3"
 dependencies = [
  "either",
- "futures",
+ "futures 0.3.28",
  "futures-timer",
  "log",
  "num-traits",
@@ -2178,24 +2085,9 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3f9eec918d3f24069decb9af1554cad7c880e2da24a9afd88aca000531ab82c1"
 
 [[package]]
-name = "foreign-types"
-version = "0.3.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f6f339eb8adc052cd2ca78910fda869aefa38d22d5cb648e6485e4d3fc06f3b1"
-dependencies = [
- "foreign-types-shared",
-]
-
-[[package]]
-name = "foreign-types-shared"
-version = "0.1.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "00b0228411908ca8685dba7fc2cdd70ec9990a6e753e89b6ac91a84c40fbaf4b"
-
-[[package]]
 name = "fork-tree"
 version = "3.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "parity-scale-codec",
 ]
@@ -2218,7 +2110,7 @@ checksum = "6c2141d6d6c8512188a7891b4b01590a45f6dac67afb4f255c4124dbb86d4eaa"
 [[package]]
 name = "frame-benchmarking"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "frame-support",
  "frame-support-procedural",
@@ -2243,7 +2135,7 @@ dependencies = [
 [[package]]
 name = "frame-benchmarking-cli"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "Inflector",
  "array-bytes",
@@ -2255,7 +2147,7 @@ dependencies = [
  "frame-system",
  "gethostname",
  "handlebars",
- "itertools 0.10.5",
+ "itertools",
  "lazy_static",
  "linked-hash-map",
  "log",
@@ -2291,7 +2183,7 @@ dependencies = [
 [[package]]
 name = "frame-executive"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -2320,11 +2212,11 @@ dependencies = [
 [[package]]
 name = "frame-remote-externalities"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "async-recursion",
- "futures",
- "indicatif 0.17.5",
+ "futures 0.3.28",
+ "indicatif",
  "jsonrpsee",
  "log",
  "parity-scale-codec",
@@ -2341,7 +2233,7 @@ dependencies = [
 [[package]]
 name = "frame-support"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "bitflags 1.3.2",
  "environmental",
@@ -2375,14 +2267,14 @@ dependencies = [
 [[package]]
 name = "frame-support-procedural"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "Inflector",
  "cfg-expr",
  "derive-syn-parse",
  "expander",
  "frame-support-procedural-tools",
- "itertools 0.10.5",
+ "itertools",
  "macro_magic",
  "proc-macro-warning",
  "proc-macro2",
@@ -2393,7 +2285,7 @@ dependencies = [
 [[package]]
 name = "frame-support-procedural-tools"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "frame-support-procedural-tools-derive",
  "proc-macro-crate",
@@ -2405,7 +2297,7 @@ dependencies = [
 [[package]]
 name = "frame-support-procedural-tools-derive"
 version = "3.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -2415,7 +2307,7 @@ dependencies = [
 [[package]]
 name = "frame-system"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "cfg-if",
  "frame-support",
@@ -2434,7 +2326,7 @@ dependencies = [
 [[package]]
 name = "frame-system-benchmarking"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -2449,7 +2341,7 @@ dependencies = [
 [[package]]
 name = "frame-system-rpc-runtime-api"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "parity-scale-codec",
  "sp-api",
@@ -2458,7 +2350,7 @@ dependencies = [
 [[package]]
 name = "frame-try-runtime"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "frame-support",
  "parity-scale-codec",
@@ -2488,6 +2380,12 @@ name = "funty"
 version = "2.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e6d5a32815ae3f33302d95fdcb2ce17862f8c65363dcfd29360480ba1001fc9c"
+
+[[package]]
+name = "futures"
+version = "0.1.31"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3a471a38ef8ed83cd6e40aa59c1ffe17db6855c18e3604d9c4ed8c08ebc28678"
 
 [[package]]
 name = "futures"
@@ -2599,6 +2497,7 @@ version = "0.3.28"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "26b01e40b772d54cf6c6d721c1d1abd0647a0106a12ecaa1c186273392a69533"
 dependencies = [
+ "futures 0.1.31",
  "futures-channel",
  "futures-core",
  "futures-io",
@@ -2764,16 +2663,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "half"
-version = "2.4.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b5eceaaeec696539ddaf7b333340f1af35a5aa87ae3e4f3ead0532f72affab2e"
-dependencies = [
- "cfg-if",
- "crunchy",
-]
-
-[[package]]
 name = "handlebars"
 version = "4.3.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2825,10 +2714,6 @@ name = "hashbrown"
 version = "0.14.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2c6201b9ff9fd90a5a3bac2e56a830d0caa509576f0e503818ee82c181b3437a"
-dependencies = [
- "ahash 0.8.8",
- "allocator-api2",
-]
 
 [[package]]
 name = "heck"
@@ -3020,19 +2905,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "hyper-tls"
-version = "0.5.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d6183ddfa99b85da61a140bea0efc93fdf56ceaa041b37d553518030827f9905"
-dependencies = [
- "bytes",
- "hyper",
- "native-tls",
- "tokio",
- "tokio-native-tls",
-]
-
-[[package]]
 name = "iana-time-zone"
 version = "0.1.57"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3101,7 +2973,7 @@ dependencies = [
  "async-io",
  "core-foundation",
  "fnv",
- "futures",
+ "futures 0.3.28",
  "if-addrs",
  "ipnet",
  "log",
@@ -3159,18 +3031,6 @@ checksum = "d5477fe2230a79769d8dc68e0eabf5437907c0457a5614a9e8dddb67f65eb65d"
 dependencies = [
  "equivalent",
  "hashbrown 0.14.0",
-]
-
-[[package]]
-name = "indicatif"
-version = "0.16.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2d207dc617c7a380ab07ff572a6e52fa202a2a8f355860ac9c38e23f8196be1b"
-dependencies = [
- "console",
- "lazy_static",
- "number_prefix",
- "regex",
 ]
 
 [[package]]
@@ -3283,15 +3143,6 @@ name = "itertools"
 version = "0.10.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b0fd2260e829bddf4cb6ea802289de2f86d6a7a690192fbe91b3f46e0f2c8473"
-dependencies = [
- "either",
-]
-
-[[package]]
-name = "itertools"
-version = "0.11.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b1c173a5686ce8bfa551b3563d0c2170bf24ca44da99c7ca4bfdab5418c3fe57"
 dependencies = [
  "either",
 ]
@@ -3560,7 +3411,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f210d259724eae82005b5c48078619b7745edb7b76de370b03f8ba59ea103097"
 dependencies = [
  "bytes",
- "futures",
+ "futures 0.3.28",
  "futures-timer",
  "getrandom 0.2.10",
  "instant",
@@ -3619,7 +3470,7 @@ checksum = "3c1df63c0b582aa434fb09b2d86897fa2b419ffeccf934b36f87fcedc8e835c2"
 dependencies = [
  "either",
  "fnv",
- "futures",
+ "futures 0.3.28",
  "futures-timer",
  "instant",
  "libp2p-identity",
@@ -3645,7 +3496,7 @@ version = "0.39.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "146ff7034daae62077c415c2376b8057368042df6ab95f5432ad5e88568b1554"
 dependencies = [
- "futures",
+ "futures 0.3.28",
  "libp2p-core",
  "log",
  "parking_lot 0.12.1",
@@ -3661,7 +3512,7 @@ checksum = "5455f472243e63b9c497ff320ded0314254a9eb751799a39c283c6f20b793f3c"
 dependencies = [
  "asynchronous-codec",
  "either",
- "futures",
+ "futures 0.3.28",
  "futures-timer",
  "libp2p-core",
  "libp2p-identity",
@@ -3704,7 +3555,7 @@ dependencies = [
  "bytes",
  "either",
  "fnv",
- "futures",
+ "futures 0.3.28",
  "futures-timer",
  "instant",
  "libp2p-core",
@@ -3728,7 +3579,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "19983e1f949f979a928f2c603de1cf180cc0dc23e4ac93a62651ccb18341460b"
 dependencies = [
  "data-encoding",
- "futures",
+ "futures 0.3.28",
  "if-watch",
  "libp2p-core",
  "libp2p-identity",
@@ -3764,7 +3615,7 @@ checksum = "9c3673da89d29936bc6435bafc638e2f184180d554ce844db65915113f86ec5e"
 dependencies = [
  "bytes",
  "curve25519-dalek 3.2.0",
- "futures",
+ "futures 0.3.28",
  "libp2p-core",
  "libp2p-identity",
  "log",
@@ -3786,7 +3637,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3e57759c19c28a73ef1eb3585ca410cefb72c1a709fcf6de1612a378e4219202"
 dependencies = [
  "either",
- "futures",
+ "futures 0.3.28",
  "futures-timer",
  "instant",
  "libp2p-core",
@@ -3803,7 +3654,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c6b26abd81cd2398382a1edfe739b539775be8a90fa6914f39b2ab49571ec735"
 dependencies = [
  "bytes",
- "futures",
+ "futures 0.3.28",
  "futures-timer",
  "if-watch",
  "libp2p-core",
@@ -3825,7 +3676,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7ffdb374267d42dc5ed5bc53f6e601d4a64ac5964779c6e40bb9e4f14c1e30d5"
 dependencies = [
  "async-trait",
- "futures",
+ "futures 0.3.28",
  "instant",
  "libp2p-core",
  "libp2p-identity",
@@ -3842,7 +3693,7 @@ checksum = "903b3d592d7694e56204d211f29d31bc004be99386644ba8731fc3e3ef27b296"
 dependencies = [
  "either",
  "fnv",
- "futures",
+ "futures 0.3.28",
  "futures-timer",
  "instant",
  "libp2p-core",
@@ -3872,7 +3723,7 @@ version = "0.39.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "33d33698596d7722d85d3ab0c86c2c322254fce1241e91208e3679b4eb3026cf"
 dependencies = [
- "futures",
+ "futures 0.3.28",
  "futures-timer",
  "if-watch",
  "libc",
@@ -3888,7 +3739,7 @@ version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ff08d13d0dc66e5e9ba6279c1de417b84fa0d0adc3b03e5732928c180ec02781"
 dependencies = [
- "futures",
+ "futures 0.3.28",
  "futures-rustls",
  "libp2p-core",
  "libp2p-identity",
@@ -3907,7 +3758,7 @@ version = "0.39.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "77dff9d32353a5887adb86c8afc1de1a94d9e8c3bc6df8b2201d7cdf5c848f43"
 dependencies = [
- "futures",
+ "futures 0.3.28",
  "js-sys",
  "libp2p-core",
  "parity-send-wrapper",
@@ -3924,7 +3775,7 @@ dependencies = [
  "async-trait",
  "asynchronous-codec",
  "bytes",
- "futures",
+ "futures 0.3.28",
  "futures-timer",
  "hex",
  "if-watch",
@@ -3953,7 +3804,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "111273f7b3d3510524c752e8b7a5314b7f7a1fee7e68161c01a7d72cbb06db9f"
 dependencies = [
  "either",
- "futures",
+ "futures 0.3.28",
  "futures-rustls",
  "libp2p-core",
  "log",
@@ -3971,7 +3822,7 @@ version = "0.43.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4dcd21d950662700a385d4c6d68e2f5f54d778e97068cdd718522222ef513bda"
 dependencies = [
- "futures",
+ "futures 0.3.28",
  "libp2p-core",
  "log",
  "thiserror",
@@ -4333,12 +4184,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "mime"
-version = "0.3.17"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6877bb514081ee2a7ff5ef9de3281f14a4dd4bceac4c09388074a6b5df8a139a"
-
-[[package]]
 name = "minimal-lexical"
 version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4465,7 +4310,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c8552ab875c1313b97b8d20cb857b9fd63e2d1d6a0a1b53ce9821e575405f27a"
 dependencies = [
  "bytes",
- "futures",
+ "futures 0.3.28",
  "log",
  "pin-project",
  "smallvec",
@@ -4506,37 +4351,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e7d66043b25d4a6cccb23619d10c19c25304b355a7dccd4a8e11423dd2382146"
 dependencies = [
  "rand 0.8.5",
-]
-
-[[package]]
-name = "native-tls"
-version = "0.2.11"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "07226173c32f2926027b63cce4bcd8076c3552846cbe7925f3aaffeac0a3b92e"
-dependencies = [
- "lazy_static",
- "libc",
- "log",
- "openssl",
- "openssl-probe",
- "openssl-sys",
- "schannel",
- "security-framework",
- "security-framework-sys",
- "tempfile",
-]
-
-[[package]]
-name = "ndarray"
-version = "0.15.6"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "adb12d4e967ec485a5f71c6311fe28158e9d6f4bc4a447b474184d0f91a8fa32"
-dependencies = [
- "matrixmultiply",
- "num-complex",
- "num-integer",
- "num-traits",
- "rawpointer",
 ]
 
 [[package]]
@@ -4584,7 +4398,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "65b4b14489ab424703c092062176d52ba55485a89c076b4f9db05092b7223aa6"
 dependencies = [
  "bytes",
- "futures",
+ "futures 0.3.28",
  "log",
  "netlink-packet-core",
  "netlink-sys",
@@ -4599,7 +4413,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6471bf08e7ac0135876a9581bf3217ef0333c191c128d34878079f42ee150411"
 dependencies = [
  "bytes",
- "futures",
+ "futures 0.3.28",
  "libc",
  "log",
  "tokio",
@@ -4626,7 +4440,7 @@ dependencies = [
  "frame-benchmarking",
  "frame-benchmarking-cli",
  "frame-system",
- "futures",
+ "futures 0.3.28",
  "jsonrpsee",
  "node-template-runtime",
  "pallet-transaction-payment",
@@ -4854,63 +4668,10 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "624a8340c38c1b80fd549087862da4ba43e08858af025b236e509b6649fc13d5"
 
 [[package]]
-name = "openssl"
-version = "0.10.64"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "95a0481286a310808298130d22dd1fef0fa571e05a8f44ec801801e84b216b1f"
-dependencies = [
- "bitflags 2.3.3",
- "cfg-if",
- "foreign-types",
- "libc",
- "once_cell",
- "openssl-macros",
- "openssl-sys",
-]
-
-[[package]]
-name = "openssl-macros"
-version = "0.1.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a948666b637a0f465e8564c73e89d4dde00d72d4d473cc972f390fc3dcee7d9c"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn 2.0.32",
-]
-
-[[package]]
 name = "openssl-probe"
 version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ff011a302c396a5197692431fc1948019154afc178baf7d8e37367442a4601cf"
-
-[[package]]
-name = "openssl-sys"
-version = "0.9.101"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dda2b0f344e78efc2facf7d195d098df0dd72151b26ab98da807afc26c198dff"
-dependencies = [
- "cc",
- "libc",
- "pkg-config",
- "vcpkg",
-]
-
-[[package]]
-name = "option-ext"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "04744f49eae99ab78e0d5c0b603ab218f515ea8cfe5a456d7629ad883a3b6e7d"
-
-[[package]]
-name = "ordered-float"
-version = "3.9.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f1e1c390732d15f1d48471625cd92d154e66db2c56645e29a9cd26f4699f72dc"
-dependencies = [
- "num-traits",
-]
 
 [[package]]
 name = "p256"
@@ -4947,7 +4708,7 @@ dependencies = [
 [[package]]
 name = "pallet-aura"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -4963,7 +4724,7 @@ dependencies = [
 [[package]]
 name = "pallet-authorship"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -4977,7 +4738,7 @@ dependencies = [
 [[package]]
 name = "pallet-balances"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -4992,7 +4753,7 @@ dependencies = [
 [[package]]
 name = "pallet-grandpa"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -5015,7 +4776,7 @@ dependencies = [
 [[package]]
 name = "pallet-session"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -5036,7 +4797,7 @@ dependencies = [
 [[package]]
 name = "pallet-sudo"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -5067,7 +4828,7 @@ dependencies = [
 [[package]]
 name = "pallet-timestamp"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -5085,7 +4846,7 @@ dependencies = [
 [[package]]
 name = "pallet-transaction-payment"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -5101,7 +4862,7 @@ dependencies = [
 [[package]]
 name = "pallet-transaction-payment-rpc"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "jsonrpsee",
  "pallet-transaction-payment-rpc-runtime-api",
@@ -5117,7 +4878,7 @@ dependencies = [
 [[package]]
 name = "pallet-transaction-payment-rpc-runtime-api"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "pallet-transaction-payment",
  "parity-scale-codec",
@@ -5246,17 +5007,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7924d1d0ad836f665c9065e26d016c673ece3993f30d340068b16f282afc1156"
 
 [[package]]
-name = "password-hash"
-version = "0.4.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7676374caaee8a325c9e7a2ae557f216c5563a171d6997b0ef8a65af35147700"
-dependencies = [
- "base64ct",
- "rand_core 0.6.4",
- "subtle",
-]
-
-[[package]]
 name = "paste"
 version = "1.0.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5278,9 +5028,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "83a0692ec44e4cf1ef28ca317f14f8f07da2d95ec3fa01f86e4467b725e60917"
 dependencies = [
  "digest 0.10.7",
- "hmac 0.12.1",
- "password-hash",
- "sha2 0.10.7",
 ]
 
 [[package]]
@@ -5508,7 +5255,7 @@ checksum = "59230a63c37f3e18569bdb90e4a89cbf5bf8b06fea0b84e65ea10cc4df47addd"
 dependencies = [
  "difflib",
  "float-cmp",
- "itertools 0.10.5",
+ "itertools",
  "normalize-line-endings",
  "predicates-core",
  "regex",
@@ -5678,7 +5425,7 @@ checksum = "119533552c9a7ffacc21e099c24a0ac8bb19c2a2a3f363de84cd9b844feab270"
 dependencies = [
  "bytes",
  "heck",
- "itertools 0.10.5",
+ "itertools",
  "lazy_static",
  "log",
  "multimap",
@@ -5699,7 +5446,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e5d2d8d10f3c6ded6da8b05b5fb3b8a5082514344d56c9f871412d29b4e075b4"
 dependencies = [
  "anyhow",
- "itertools 0.10.5",
+ "itertools",
  "proc-macro2",
  "quote",
  "syn 1.0.109",
@@ -5713,12 +5460,6 @@ checksum = "213622a1460818959ac1181aaeb2dc9c7f63df720db7d788b3e24eacd1983e13"
 dependencies = [
  "prost",
 ]
-
-[[package]]
-name = "protobuf"
-version = "2.28.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "106dd99e98437432fed6519dedecfade6a06a73bb7b2a1e019fdd2bee5778d94"
 
 [[package]]
 name = "psm"
@@ -6040,46 +5781,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e5ea92a5b6195c6ef2a0295ea818b312502c6fc94dde986c5553242e18fd4ce2"
 
 [[package]]
-name = "reqwest"
-version = "0.11.24"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c6920094eb85afde5e4a138be3f2de8bbdf28000f0029e72c45025a56b042251"
-dependencies = [
- "base64 0.21.2",
- "bytes",
- "encoding_rs",
- "futures-core",
- "futures-util",
- "h2",
- "http",
- "http-body",
- "hyper",
- "hyper-tls",
- "ipnet",
- "js-sys",
- "log",
- "mime",
- "native-tls",
- "once_cell",
- "percent-encoding",
- "pin-project-lite 0.2.10",
- "rustls-pemfile",
- "serde",
- "serde_json",
- "serde_urlencoded",
- "sync_wrapper",
- "system-configuration",
- "tokio",
- "tokio-native-tls",
- "tower-service",
- "url",
- "wasm-bindgen",
- "wasm-bindgen-futures",
- "web-sys",
- "winreg",
-]
-
-[[package]]
 name = "resolv-conf"
 version = "0.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -6163,7 +5864,7 @@ version = "0.10.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "322c53fd76a18698f1c27381d58091de3a043d356aa5bd0d510608b565f469a0"
 dependencies = [
- "futures",
+ "futures 0.3.28",
  "log",
  "netlink-packet-route",
  "netlink-proto",
@@ -6194,45 +5895,6 @@ dependencies = [
  "serde",
  "thiserror",
  "webrtc-util",
-]
-
-[[package]]
-name = "rust-bert"
-version = "0.22.0"
-source = "git+https://github.com/guillaume-be/rust-bert.git?branch=main#29f9a7a0ff832c742db919cbc6fd0b9c865a98ae"
-dependencies = [
- "cached-path",
- "dirs",
- "half",
- "lazy_static",
- "ordered-float",
- "regex",
- "rust_tokenizers",
- "serde",
- "serde_json",
- "tch",
- "thiserror",
- "uuid",
-]
-
-[[package]]
-name = "rust_tokenizers"
-version = "8.1.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "19599f60a688b5160247ee9c37a6af8b0c742ee8b160c5b44acc0f0eb265a59f"
-dependencies = [
- "csv",
- "hashbrown 0.14.0",
- "itertools 0.11.0",
- "lazy_static",
- "protobuf",
- "rayon",
- "regex",
- "serde",
- "serde_json",
- "thiserror",
- "unicode-normalization",
- "unicode-normalization-alignments",
 ]
 
 [[package]]
@@ -6392,7 +6054,7 @@ version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "26338f5e09bb721b85b135ea05af7767c90b52f6de4f087d4f4a3a9d64e7dc04"
 dependencies = [
- "futures",
+ "futures 0.3.28",
  "pin-project",
  "static_assertions",
 ]
@@ -6413,16 +6075,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "safetensors"
-version = "0.3.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d93279b86b3de76f820a8854dd06cbc33cfa57a417b19c47f6a25280112fb1df"
-dependencies = [
- "serde",
- "serde_json",
-]
-
-[[package]]
 name = "same-file"
 version = "1.0.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -6434,7 +6086,7 @@ dependencies = [
 [[package]]
 name = "sc-allocator"
 version = "4.1.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "log",
  "sp-core",
@@ -6445,9 +6097,9 @@ dependencies = [
 [[package]]
 name = "sc-basic-authorship"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
- "futures",
+ "futures 0.3.28",
  "futures-timer",
  "log",
  "parity-scale-codec",
@@ -6468,7 +6120,7 @@ dependencies = [
 [[package]]
 name = "sc-block-builder"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "parity-scale-codec",
  "sc-client-api",
@@ -6483,7 +6135,7 @@ dependencies = [
 [[package]]
 name = "sc-chain-spec"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "memmap2",
  "sc-chain-spec-derive",
@@ -6502,7 +6154,7 @@ dependencies = [
 [[package]]
 name = "sc-chain-spec-derive"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "proc-macro-crate",
  "proc-macro2",
@@ -6513,13 +6165,13 @@ dependencies = [
 [[package]]
 name = "sc-cli"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "array-bytes",
  "chrono",
  "clap",
  "fdlimit",
- "futures",
+ "futures 0.3.28",
  "libp2p-identity",
  "log",
  "names",
@@ -6552,10 +6204,10 @@ dependencies = [
 [[package]]
 name = "sc-client-api"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "fnv",
- "futures",
+ "futures 0.3.28",
  "log",
  "parity-scale-codec",
  "parking_lot 0.12.1",
@@ -6578,7 +6230,7 @@ dependencies = [
 [[package]]
 name = "sc-client-db"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "hash-db",
  "kvdb",
@@ -6604,10 +6256,10 @@ dependencies = [
 [[package]]
 name = "sc-consensus"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "async-trait",
- "futures",
+ "futures 0.3.28",
  "futures-timer",
  "libp2p-identity",
  "log",
@@ -6629,10 +6281,10 @@ dependencies = [
 [[package]]
 name = "sc-consensus-aura"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "async-trait",
- "futures",
+ "futures 0.3.28",
  "log",
  "parity-scale-codec",
  "sc-block-builder",
@@ -6658,7 +6310,7 @@ dependencies = [
 [[package]]
 name = "sc-consensus-grandpa"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "ahash 0.8.8",
  "array-bytes",
@@ -6666,7 +6318,7 @@ dependencies = [
  "dyn-clone",
  "finality-grandpa",
  "fork-tree",
- "futures",
+ "futures 0.3.28",
  "futures-timer",
  "log",
  "parity-scale-codec",
@@ -6699,10 +6351,10 @@ dependencies = [
 [[package]]
 name = "sc-consensus-slots"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "async-trait",
- "futures",
+ "futures 0.3.28",
  "futures-timer",
  "log",
  "parity-scale-codec",
@@ -6722,7 +6374,7 @@ dependencies = [
 [[package]]
 name = "sc-executor"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "parity-scale-codec",
  "parking_lot 0.12.1",
@@ -6744,7 +6396,7 @@ dependencies = [
 [[package]]
 name = "sc-executor-common"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "sc-allocator",
  "sp-maybe-compressed-blob",
@@ -6756,7 +6408,7 @@ dependencies = [
 [[package]]
 name = "sc-executor-wasmtime"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "anyhow",
  "cfg-if",
@@ -6773,10 +6425,10 @@ dependencies = [
 [[package]]
 name = "sc-informant"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "ansi_term",
- "futures",
+ "futures 0.3.28",
  "futures-timer",
  "log",
  "sc-client-api",
@@ -6789,7 +6441,7 @@ dependencies = [
 [[package]]
 name = "sc-keystore"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "array-bytes",
  "parking_lot 0.12.1",
@@ -6803,7 +6455,7 @@ dependencies = [
 [[package]]
 name = "sc-network"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "array-bytes",
  "async-channel",
@@ -6812,7 +6464,7 @@ dependencies = [
  "bytes",
  "either",
  "fnv",
- "futures",
+ "futures 0.3.28",
  "futures-timer",
  "ip_network",
  "libp2p",
@@ -6844,11 +6496,11 @@ dependencies = [
 [[package]]
 name = "sc-network-bitswap"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "async-channel",
  "cid",
- "futures",
+ "futures 0.3.28",
  "libp2p-identity",
  "log",
  "prost",
@@ -6864,11 +6516,11 @@ dependencies = [
 [[package]]
 name = "sc-network-common"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "async-trait",
  "bitflags 1.3.2",
- "futures",
+ "futures 0.3.28",
  "libp2p-identity",
  "parity-scale-codec",
  "prost-build",
@@ -6881,10 +6533,10 @@ dependencies = [
 [[package]]
 name = "sc-network-gossip"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "ahash 0.8.8",
- "futures",
+ "futures 0.3.28",
  "futures-timer",
  "libp2p",
  "log",
@@ -6899,11 +6551,11 @@ dependencies = [
 [[package]]
 name = "sc-network-light"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "array-bytes",
  "async-channel",
- "futures",
+ "futures 0.3.28",
  "libp2p-identity",
  "log",
  "parity-scale-codec",
@@ -6920,13 +6572,13 @@ dependencies = [
 [[package]]
 name = "sc-network-sync"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "array-bytes",
  "async-channel",
  "async-trait",
  "fork-tree",
- "futures",
+ "futures 0.3.28",
  "futures-timer",
  "libp2p",
  "log",
@@ -6954,10 +6606,10 @@ dependencies = [
 [[package]]
 name = "sc-network-transactions"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "array-bytes",
- "futures",
+ "futures 0.3.28",
  "libp2p",
  "log",
  "parity-scale-codec",
@@ -6972,12 +6624,12 @@ dependencies = [
 [[package]]
 name = "sc-offchain"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "array-bytes",
  "bytes",
  "fnv",
- "futures",
+ "futures 0.3.28",
  "futures-timer",
  "hyper",
  "hyper-rustls 0.24.1",
@@ -7006,7 +6658,7 @@ dependencies = [
 [[package]]
 name = "sc-proposer-metrics"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "log",
  "substrate-prometheus-endpoint",
@@ -7015,9 +6667,9 @@ dependencies = [
 [[package]]
 name = "sc-rpc"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
- "futures",
+ "futures 0.3.28",
  "jsonrpsee",
  "log",
  "parity-scale-codec",
@@ -7046,7 +6698,7 @@ dependencies = [
 [[package]]
 name = "sc-rpc-api"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "jsonrpsee",
  "parity-scale-codec",
@@ -7065,7 +6717,7 @@ dependencies = [
 [[package]]
 name = "sc-rpc-server"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "http",
  "jsonrpsee",
@@ -7080,10 +6732,10 @@ dependencies = [
 [[package]]
 name = "sc-rpc-spec-v2"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "array-bytes",
- "futures",
+ "futures 0.3.28",
  "futures-util",
  "hex",
  "jsonrpsee",
@@ -7106,12 +6758,12 @@ dependencies = [
 [[package]]
 name = "sc-service"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "async-trait",
  "directories",
  "exit-future",
- "futures",
+ "futures 0.3.28",
  "futures-timer",
  "jsonrpsee",
  "log",
@@ -7170,7 +6822,7 @@ dependencies = [
 [[package]]
 name = "sc-state-db"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "log",
  "parity-scale-codec",
@@ -7181,7 +6833,7 @@ dependencies = [
 [[package]]
 name = "sc-statement-store"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "log",
  "parity-db",
@@ -7199,9 +6851,9 @@ dependencies = [
 [[package]]
 name = "sc-sysinfo"
 version = "6.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
- "futures",
+ "futures 0.3.28",
  "libc",
  "log",
  "rand 0.8.5",
@@ -7218,10 +6870,10 @@ dependencies = [
 [[package]]
 name = "sc-telemetry"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "chrono",
- "futures",
+ "futures 0.3.28",
  "libp2p",
  "log",
  "parking_lot 0.12.1",
@@ -7237,7 +6889,7 @@ dependencies = [
 [[package]]
 name = "sc-tracing"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "ansi_term",
  "atty",
@@ -7266,7 +6918,7 @@ dependencies = [
 [[package]]
 name = "sc-tracing-proc-macro"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "proc-macro-crate",
  "proc-macro2",
@@ -7277,10 +6929,10 @@ dependencies = [
 [[package]]
 name = "sc-transaction-pool"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "async-trait",
- "futures",
+ "futures 0.3.28",
  "futures-timer",
  "linked-hash-map",
  "log",
@@ -7303,10 +6955,10 @@ dependencies = [
 [[package]]
 name = "sc-transaction-pool-api"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "async-trait",
- "futures",
+ "futures 0.3.28",
  "log",
  "parity-scale-codec",
  "serde",
@@ -7319,10 +6971,10 @@ dependencies = [
 [[package]]
 name = "sc-utils"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "async-channel",
- "futures",
+ "futures 0.3.28",
  "futures-timer",
  "lazy_static",
  "log",
@@ -7582,18 +7234,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "serde_urlencoded"
-version = "0.7.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d3491c14715ca2294c4d6a88f15e84739788c1d030eed8c110436aafdaa2f3fd"
-dependencies = [
- "form_urlencoded",
- "itoa",
- "ryu",
- "serde",
-]
-
-[[package]]
 name = "sha-1"
 version = "0.9.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -7799,7 +7439,7 @@ dependencies = [
  "base64 0.13.1",
  "bytes",
  "flate2",
- "futures",
+ "futures 0.3.28",
  "http",
  "httparse",
  "log",
@@ -7810,7 +7450,7 @@ dependencies = [
 [[package]]
 name = "sp-api"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "hash-db",
  "log",
@@ -7831,7 +7471,7 @@ dependencies = [
 [[package]]
 name = "sp-api-proc-macro"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "Inflector",
  "blake2",
@@ -7845,7 +7485,7 @@ dependencies = [
 [[package]]
 name = "sp-application-crypto"
 version = "23.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "parity-scale-codec",
  "scale-info",
@@ -7858,7 +7498,7 @@ dependencies = [
 [[package]]
 name = "sp-arithmetic"
 version = "16.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "integer-sqrt",
  "num-traits",
@@ -7872,7 +7512,7 @@ dependencies = [
 [[package]]
 name = "sp-block-builder"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "sp-api",
  "sp-inherents",
@@ -7883,9 +7523,9 @@ dependencies = [
 [[package]]
 name = "sp-blockchain"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
- "futures",
+ "futures 0.3.28",
  "log",
  "parity-scale-codec",
  "parking_lot 0.12.1",
@@ -7901,10 +7541,10 @@ dependencies = [
 [[package]]
 name = "sp-consensus"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "async-trait",
- "futures",
+ "futures 0.3.28",
  "log",
  "sp-core",
  "sp-inherents",
@@ -7916,7 +7556,7 @@ dependencies = [
 [[package]]
 name = "sp-consensus-aura"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "async-trait",
  "parity-scale-codec",
@@ -7933,7 +7573,7 @@ dependencies = [
 [[package]]
 name = "sp-consensus-babe"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "async-trait",
  "parity-scale-codec",
@@ -7952,7 +7592,7 @@ dependencies = [
 [[package]]
 name = "sp-consensus-grandpa"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "finality-grandpa",
  "log",
@@ -7970,7 +7610,7 @@ dependencies = [
 [[package]]
 name = "sp-consensus-slots"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "parity-scale-codec",
  "scale-info",
@@ -7982,7 +7622,7 @@ dependencies = [
 [[package]]
 name = "sp-core"
 version = "21.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "array-bytes",
  "bitflags 1.3.2",
@@ -7991,7 +7631,7 @@ dependencies = [
  "bs58",
  "dyn-clonable",
  "ed25519-zebra",
- "futures",
+ "futures 0.3.28",
  "hash-db",
  "hash256-std-hasher",
  "impl-serde",
@@ -8027,7 +7667,7 @@ dependencies = [
 [[package]]
 name = "sp-core-hashing"
 version = "9.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "blake2b_simd",
  "byteorder",
@@ -8040,7 +7680,7 @@ dependencies = [
 [[package]]
 name = "sp-core-hashing-proc-macro"
 version = "9.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "quote",
  "sp-core-hashing",
@@ -8050,7 +7690,7 @@ dependencies = [
 [[package]]
 name = "sp-database"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "kvdb",
  "parking_lot 0.12.1",
@@ -8059,7 +7699,7 @@ dependencies = [
 [[package]]
 name = "sp-debug-derive"
 version = "8.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -8069,7 +7709,7 @@ dependencies = [
 [[package]]
 name = "sp-externalities"
 version = "0.19.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "environmental",
  "parity-scale-codec",
@@ -8080,7 +7720,7 @@ dependencies = [
 [[package]]
 name = "sp-inherents"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "async-trait",
  "impl-trait-for-tuples",
@@ -8094,7 +7734,7 @@ dependencies = [
 [[package]]
 name = "sp-io"
 version = "23.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "bytes",
  "ed25519",
@@ -8119,7 +7759,7 @@ dependencies = [
 [[package]]
 name = "sp-keyring"
 version = "24.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "lazy_static",
  "sp-core",
@@ -8130,7 +7770,7 @@ dependencies = [
 [[package]]
 name = "sp-keystore"
 version = "0.27.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "parity-scale-codec",
  "parking_lot 0.12.1",
@@ -8142,7 +7782,7 @@ dependencies = [
 [[package]]
 name = "sp-maybe-compressed-blob"
 version = "4.1.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "thiserror",
  "zstd 0.12.4",
@@ -8151,7 +7791,7 @@ dependencies = [
 [[package]]
 name = "sp-metadata-ir"
 version = "0.1.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "frame-metadata",
  "parity-scale-codec",
@@ -8162,7 +7802,7 @@ dependencies = [
 [[package]]
 name = "sp-offchain"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "sp-api",
  "sp-core",
@@ -8172,7 +7812,7 @@ dependencies = [
 [[package]]
 name = "sp-panic-handler"
 version = "8.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "backtrace",
  "lazy_static",
@@ -8182,7 +7822,7 @@ dependencies = [
 [[package]]
 name = "sp-rpc"
 version = "6.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "rustc-hash",
  "serde",
@@ -8192,7 +7832,7 @@ dependencies = [
 [[package]]
 name = "sp-runtime"
 version = "24.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "either",
  "hash256-std-hasher",
@@ -8214,7 +7854,7 @@ dependencies = [
 [[package]]
 name = "sp-runtime-interface"
 version = "17.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "bytes",
  "impl-trait-for-tuples",
@@ -8232,7 +7872,7 @@ dependencies = [
 [[package]]
 name = "sp-runtime-interface-proc-macro"
 version = "11.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "Inflector",
  "proc-macro-crate",
@@ -8244,7 +7884,7 @@ dependencies = [
 [[package]]
 name = "sp-session"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "parity-scale-codec",
  "scale-info",
@@ -8259,7 +7899,7 @@ dependencies = [
 [[package]]
 name = "sp-staking"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "impl-trait-for-tuples",
  "parity-scale-codec",
@@ -8273,7 +7913,7 @@ dependencies = [
 [[package]]
 name = "sp-state-machine"
 version = "0.28.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "hash-db",
  "log",
@@ -8294,7 +7934,7 @@ dependencies = [
 [[package]]
 name = "sp-statement-store"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "parity-scale-codec",
  "scale-info",
@@ -8311,12 +7951,12 @@ dependencies = [
 [[package]]
 name = "sp-std"
 version = "8.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 
 [[package]]
 name = "sp-storage"
 version = "13.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "impl-serde",
  "parity-scale-codec",
@@ -8329,7 +7969,7 @@ dependencies = [
 [[package]]
 name = "sp-timestamp"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "async-trait",
  "parity-scale-codec",
@@ -8342,7 +7982,7 @@ dependencies = [
 [[package]]
 name = "sp-tracing"
 version = "10.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "parity-scale-codec",
  "sp-std",
@@ -8354,7 +7994,7 @@ dependencies = [
 [[package]]
 name = "sp-transaction-pool"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "sp-api",
  "sp-runtime",
@@ -8363,7 +8003,7 @@ dependencies = [
 [[package]]
 name = "sp-transaction-storage-proof"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "async-trait",
  "parity-scale-codec",
@@ -8378,7 +8018,7 @@ dependencies = [
 [[package]]
 name = "sp-trie"
 version = "22.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "ahash 0.8.8",
  "hash-db",
@@ -8401,7 +8041,7 @@ dependencies = [
 [[package]]
 name = "sp-version"
 version = "22.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "impl-serde",
  "parity-scale-codec",
@@ -8418,7 +8058,7 @@ dependencies = [
 [[package]]
 name = "sp-version-proc-macro"
 version = "8.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "parity-scale-codec",
  "proc-macro2",
@@ -8429,7 +8069,7 @@ dependencies = [
 [[package]]
 name = "sp-wasm-interface"
 version = "14.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "anyhow",
  "impl-trait-for-tuples",
@@ -8442,7 +8082,7 @@ dependencies = [
 [[package]]
 name = "sp-weights"
 version = "20.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "parity-scale-codec",
  "scale-info",
@@ -8609,15 +8249,15 @@ dependencies = [
 [[package]]
 name = "substrate-build-script-utils"
 version = "3.0.0"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 
 [[package]]
 name = "substrate-frame-rpc-system"
 version = "4.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "frame-system-rpc-runtime-api",
- "futures",
+ "futures 0.3.28",
  "jsonrpsee",
  "log",
  "parity-scale-codec",
@@ -8633,7 +8273,7 @@ dependencies = [
 [[package]]
 name = "substrate-prometheus-endpoint"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "hyper",
  "log",
@@ -8645,7 +8285,7 @@ dependencies = [
 [[package]]
 name = "substrate-rpc-client"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "async-trait",
  "jsonrpsee",
@@ -8658,7 +8298,7 @@ dependencies = [
 [[package]]
 name = "substrate-wasm-builder"
 version = "5.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "ansi_term",
  "build-helper",
@@ -8711,12 +8351,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "sync_wrapper"
-version = "0.1.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2047c6ded9c721764247e62cd3b03c09ffc529b2ba5b10ec482ae507a4a70160"
-
-[[package]]
 name = "synstructure"
 version = "0.12.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -8756,38 +8390,10 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "55937e1799185b12863d447f42597ed69d9928686b8d88a1df17376a097d8369"
 
 [[package]]
-name = "tar"
-version = "0.4.40"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b16afcea1f22891c49a00c751c7b63b2233284064f11a200fc624137c51e2ddb"
-dependencies = [
- "filetime",
- "libc",
- "xattr",
-]
-
-[[package]]
 name = "target-lexicon"
 version = "0.12.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1d2faeef5759ab89935255b1a4cd98e0baf99d1085e37d36599c625dac49ae8e"
-
-[[package]]
-name = "tch"
-version = "0.15.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7c7cb00bc2770454b515388d45be7097a3ded2eca172f3dcdb7ca4cc06c40bf1"
-dependencies = [
- "half",
- "lazy_static",
- "libc",
- "ndarray",
- "rand 0.8.5",
- "safetensors",
- "thiserror",
- "torch-sys",
- "zip",
-]
 
 [[package]]
 name = "tempfile"
@@ -8995,16 +8601,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "tokio-native-tls"
-version = "0.3.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bbae76ab933c85776efabc971569dd6119c580d8f5d448769dec1764bf796ef2"
-dependencies = [
- "native-tls",
- "tokio",
-]
-
-[[package]]
 name = "tokio-retry"
 version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -9104,18 +8700,6 @@ dependencies = [
  "serde_spanned",
  "toml_datetime",
  "winnow",
-]
-
-[[package]]
-name = "torch-sys"
-version = "0.15.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "29e0244e5b148a31dd7fe961165037d1927754d024095c1013937532d7e73a22"
-dependencies = [
- "anyhow",
- "cc",
- "libc",
- "zip",
 ]
 
 [[package]]
@@ -9324,7 +8908,7 @@ checksum = "3528ecfd12c466c6f163363caf2d02a71161dd5e1cc6ae7b34207ea2d42d81ed"
 [[package]]
 name = "try-runtime-cli"
 version = "0.10.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?branch=polkadot-v1.0.0#948fbd2fd1233dc26dbb9f9bbc1d2cca2c03945d"
+source = "git+https://github.com/moonsong-labs/substrate.git?branch=crystalin-v1.0.0-long-duration-block#de92d094bdcbfc99658318bcd2252ab6a4a1d940"
 dependencies = [
  "async-trait",
  "clap",
@@ -9371,7 +8955,7 @@ checksum = "4712ee30d123ec7ae26d1e1b218395a16c87cdbaf4b3925d170d684af62ea5e8"
 dependencies = [
  "async-trait",
  "base64 0.13.1",
- "futures",
+ "futures 0.3.28",
  "log",
  "md-5",
  "rand 0.8.5",
@@ -9437,15 +9021,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5c5713f0fc4b5db668a2ac63cdb7bb4469d8c9fed047b1d0292cc7b0ce2ba921"
 dependencies = [
  "tinyvec",
-]
-
-[[package]]
-name = "unicode-normalization-alignments"
-version = "0.1.12"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "43f613e4fa046e69818dd287fdc4bc78175ff20331479dab6e1b0f98d57062de"
-dependencies = [
- "smallvec",
 ]
 
 [[package]]
@@ -9721,7 +9296,7 @@ version = "0.2.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "be0ecb0db480561e9a7642b5d3e4187c128914e58aa84330b9493e3eb68c5e7f"
 dependencies = [
- "futures",
+ "futures 0.3.28",
  "js-sys",
  "parking_lot 0.11.2",
  "pin-utils",
@@ -10513,21 +10088,12 @@ dependencies = [
 ]
 
 [[package]]
-name = "xattr"
-version = "1.1.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fbc6ab6ec1907d1a901cdbcd2bd4cb9e7d64ce5c9739cbb97d3c391acd8c7fae"
-dependencies = [
- "libc",
-]
-
-[[package]]
 name = "yamux"
 version = "0.10.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e5d9ba232399af1783a58d8eb26f6b5006fbefe2dc9ef36bd283324792d03ea5"
 dependencies = [
- "futures",
+ "futures 0.3.28",
  "log",
  "nohash-hasher",
  "parking_lot 0.12.1",
@@ -10582,26 +10148,6 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 2.0.32",
-]
-
-[[package]]
-name = "zip"
-version = "0.6.6"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "760394e246e4c28189f19d488c058bf16f564016aefac5d32bb1f3b51d5e9261"
-dependencies = [
- "aes 0.8.3",
- "byteorder",
- "bzip2",
- "constant_time_eq 0.1.5",
- "crc32fast",
- "crossbeam-utils",
- "flate2",
- "hmac 0.12.1",
- "pbkdf2 0.11.0",
- "sha1",
- "time 0.3.23",
- "zstd 0.11.2+zstd.1.5.2",
 ]
 
 [[package]]

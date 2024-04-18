@@ -16,42 +16,42 @@ targets = ["x86_64-unknown-linux-gnu"]
 codec = { package = "parity-scale-codec", version = "3.6.1", default-features = false, features = ["derive"] }
 scale-info = { version = "2.5.0", default-features = false, features = ["derive"] }
 
-pallet-aura = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
-pallet-balances = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
-frame-support = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
-pallet-grandpa = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
-pallet-sudo = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
-frame-system = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
-frame-try-runtime = { version = "0.10.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", optional = true , branch = "polkadot-v1.0.0" }
-pallet-timestamp = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
-pallet-transaction-payment = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
-frame-executive = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
-sp-api = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
-sp-block-builder = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
-sp-consensus-aura = { version = "0.10.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
-sp-consensus-grandpa = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
-sp-core = { version = "21.0.0", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
-sp-inherents = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
-sp-offchain = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
-sp-runtime = { version = "24.0.0", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
-sp-session = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
-sp-std = { version = "8.0.0", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
-sp-transaction-pool = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
-sp-version = { version = "22.0.0", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
+pallet-aura = { version = "4.0.0-dev", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", branch = "crystalin-v1.0.0-long-duration-block" }
+pallet-balances = { version = "4.0.0-dev", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", branch = "crystalin-v1.0.0-long-duration-block" }
+frame-support = { version = "4.0.0-dev", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", branch = "crystalin-v1.0.0-long-duration-block" }
+pallet-grandpa = { version = "4.0.0-dev", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", branch = "crystalin-v1.0.0-long-duration-block" }
+pallet-sudo = { version = "4.0.0-dev", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", branch = "crystalin-v1.0.0-long-duration-block" }
+frame-system = { version = "4.0.0-dev", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", branch = "crystalin-v1.0.0-long-duration-block" }
+frame-try-runtime = { version = "0.10.0-dev", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", optional = true , branch = "crystalin-v1.0.0-long-duration-block" }
+pallet-timestamp = { version = "4.0.0-dev", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", branch = "crystalin-v1.0.0-long-duration-block" }
+pallet-transaction-payment = { version = "4.0.0-dev", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", branch = "crystalin-v1.0.0-long-duration-block" }
+frame-executive = { version = "4.0.0-dev", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", branch = "crystalin-v1.0.0-long-duration-block" }
+sp-api = { version = "4.0.0-dev", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", branch = "crystalin-v1.0.0-long-duration-block" }
+sp-block-builder = { version = "4.0.0-dev", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", branch = "crystalin-v1.0.0-long-duration-block" }
+sp-consensus-aura = { version = "0.10.0-dev", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", branch = "crystalin-v1.0.0-long-duration-block" }
+sp-consensus-grandpa = { version = "4.0.0-dev", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", branch = "crystalin-v1.0.0-long-duration-block" }
+sp-core = { version = "21.0.0", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", branch = "crystalin-v1.0.0-long-duration-block" }
+sp-inherents = { version = "4.0.0-dev", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", branch = "crystalin-v1.0.0-long-duration-block" }
+sp-offchain = { version = "4.0.0-dev", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", branch = "crystalin-v1.0.0-long-duration-block" }
+sp-runtime = { version = "24.0.0", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", branch = "crystalin-v1.0.0-long-duration-block" }
+sp-session = { version = "4.0.0-dev", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", branch = "crystalin-v1.0.0-long-duration-block" }
+sp-std = { version = "8.0.0", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", branch = "crystalin-v1.0.0-long-duration-block" }
+sp-transaction-pool = { version = "4.0.0-dev", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", branch = "crystalin-v1.0.0-long-duration-block" }
+sp-version = { version = "22.0.0", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", branch = "crystalin-v1.0.0-long-duration-block" }
 
 # Used for the node template's RPCs
-frame-system-rpc-runtime-api = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
-pallet-transaction-payment-rpc-runtime-api = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
+frame-system-rpc-runtime-api = { version = "4.0.0-dev", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", branch = "crystalin-v1.0.0-long-duration-block" }
+pallet-transaction-payment-rpc-runtime-api = { version = "4.0.0-dev", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", branch = "crystalin-v1.0.0-long-duration-block" }
 
 # Used for runtime benchmarking
-frame-benchmarking = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", optional = true , branch = "polkadot-v1.0.0" }
-frame-system-benchmarking = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", optional = true , branch = "polkadot-v1.0.0" }
+frame-benchmarking = { version = "4.0.0-dev", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", optional = true , branch = "crystalin-v1.0.0-long-duration-block" }
+frame-system-benchmarking = { version = "4.0.0-dev", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", optional = true , branch = "crystalin-v1.0.0-long-duration-block" }
 
 # Local Dependencies
 pallet-template = { version = "4.0.0-dev", default-features = false, path = "../pallets/template" }
 
 [build-dependencies]
-substrate-wasm-builder = { version = "5.0.0-dev", git = "https://github.com/paritytech/substrate.git", optional = true , branch = "polkadot-v1.0.0" }
+substrate-wasm-builder = { version = "5.0.0-dev", git = "https://github.com/moonsong-labs/substrate.git", optional = true , branch = "crystalin-v1.0.0-long-duration-block" }
 
 [features]
 default = ["std"]

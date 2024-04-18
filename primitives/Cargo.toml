@@ -4,16 +4,18 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-sp-std = { version = "8.0.0", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
-sp-runtime-interface = {version ="17.0.0", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0"}
-sp-externalities = { version = "0.19.0", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
+sp-std = { version = "8.0.0", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", branch = "crystalin-v1.0.0-long-duration-block" }
+sp-runtime-interface = {version ="17.0.0", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", branch = "crystalin-v1.0.0-long-duration-block" }
+sp-externalities = { version = "0.19.0", default-features = false, git = "https://github.com/moonsong-labs/substrate.git", branch = "crystalin-v1.0.0-long-duration-block" }
 
-rust-bert = { default-features = false, git = "https://github.com/guillaume-be/rust-bert.git", branch = "main", optional = true }
-tch = { version = "0.15.0", optional = true  }
+futures = { version = "0.3.21", features = ["compat"]}
 once_cell = { version = "1.8.0", optional = true }
 log = {version = "0.4"}
+jsonrpsee = { version = "0.16.2", features = ["http-client"], optional = true }
+serde = { version = "1.0", default-features = false, features = ["alloc", "derive"] }
+serde_json = { version = "1.0", default-features = false, features = ["alloc"] }
 
 [features]
 default = ["std"]
-std = ["sp-externalities/std", "sp-runtime-interface/std", "tch", "rust-bert", "once_cell", "rust-bert/remote", "rust-bert/default-tls" ]
+std = ["sp-externalities/std", "sp-runtime-interface/std", "once_cell", "jsonrpsee", "serde/std", "serde_json/std"]
 
